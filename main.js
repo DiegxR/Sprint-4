@@ -215,7 +215,7 @@ products.addEventListener('click', (e) =>{
     }
 })
 const numCar = document.getElementById('numCar')
-let carProducts = JSON.parse(localStorage.getItem('carProducts')) || [];
+let carProducts = [];
 if(carProducts.length !== 0){
     numCar.innerText = carProducts.length
 }
@@ -246,7 +246,6 @@ addModal.addEventListener('click', (e)=>{
             })
         }
     }
-    localStorage.setItem('carProducts', JSON.stringify(carProducts))
     if(carProducts.length !== 0){
         numCar.innerText = carProducts.length
     }
@@ -277,13 +276,13 @@ const renderCar = (data, carProducts) =>{
             </div>
             <figure class='contador' >
             ${element.type == 1 ? `
-            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('g','')*1-${element.type == 1? 5: 1}+'g'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('g','')).toFixed(1); if(getElementById('counter${index}').value.replace('g','') < 250){carProducts.splice(${index}, 1); deleteProduct()}; carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('g','') ; document.getElementById('renderPrice').onclick()">-</button>
-            <input id="counter${index}" value="${carProduct.cantidad}g" class='carProduct.condicion' onblur="if(getElementById('counter${index}').value.replace('g','') < 250){carProducts.splice(${index}, 1); deleteProduct(); }">
-            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('g','')*1+5+'g'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('g','')).toFixed(1); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('g','') ; document.getElementById('renderPrice').onclick()">+</button>
+            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('g','')*1-${element.type == 1? 5: 1}+'g'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('g','')).toFixed(1); if(getElementById('counter${index}').value.replace('g','') < 250){carProducts.splice(${index}, 1); deleteProduct(); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('g',''); document.getElementById('renderPrice').onclick()">-</button>
+            <input id="counter${index}" value="${carProduct.cantidad}g" class='carProduct.condicion' onblur="if(getElementById('counter${index}').value.replace('g','') < 250){carProducts.splice(${index}, 1); deleteProduct(); ; ">
+            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('g','')*1+5+'g'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('g','')).toFixed(1); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('g',''); document.getElementById('renderPrice').onclick();">+</button>
             `:`
-            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('U','')*1-1+'U'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('U','')).toFixed(1); if(getElementById('counter${index}').value.replace('U','') < 1){carProducts.splice(${index}, 1); deleteProduct()}; carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('U','') ;document.getElementById('renderPrice').onclick()">-</button>
-            <input id="counter${index}" value="${carProduct.cantidad}U" onblur="if(getElementById('counter${index}').value.replace('U','') < 1){carProducts.splice(${index}, 1); deleteProduct()}">
-            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('U','')*1+1+'U'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('U','')).toFixed(1); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('U','') ; document.getElementById('renderPrice').onclick()">+</button>
+            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('U','')*1-1+'U'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('U','')).toFixed(1); if(getElementById('counter${index}').value.replace('U','') < 1){carProducts.splice(${index}, 1); deleteProduct(); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('U','');document.getElementById('renderPrice').onclick()">-</button>
+            <input id="counter${index}" value="${carProduct.cantidad}U" onblur="if(getElementById('counter${index}').value.replace('U','') < 1){carProducts.splice(${index}, 1); deleteProduct()">
+            <button onclick="getElementById('counter${index}').value = getElementById('counter${index}').value.replace('U','')*1+1+'U'; getElementById('price${index}').textContent = '$'+(${element.type == 1 ? withDiscount(element)/1000 : withDiscount(element)}*getElementById('counter${index}').value.replace('U','')).toFixed(1); carProducts[${index}].cantidad = getElementById('counter${index}').value.replace('U',''); document.getElementById('renderPrice').onclick(); ">+</button>
             `}
             </figure>
             </figure>
@@ -364,7 +363,7 @@ carModal.addEventListener('mouseenter',(e)=>{
         <div>
         <input id="num" placeholder="1234 1234 1234 1234"/>
         <figure>
-        <input id="date"placeholder="MM / YY"/>
+        <input id="date"placeholder="MM / YY"/ oninput="getElementById('date').value.split('').length > 1 ? getElementById('date').value = getElementById('date').value+'/' : ">
         <input id="cvc"placeholder="CVC"/>
         </figure>
         </div>
@@ -492,7 +491,7 @@ const editInfo = async(id) =>{
             imagenUrl.value = element.imagen
             nombreF.value = element.name
             precioForm.value = element.price
-            if(element?.descuentoF){
+            if(element?.discount){
                 descuentoF.value = element.discount
             }
             tipo.value = element.type
@@ -510,7 +509,8 @@ const borrarProducto = async(id)=>{
     const product = data.find((element)=> element.id == id)
     confirm(`¿Está seguro de eliminar ${product.name} de la lista?`) ? 
     await fetch('http://localhost:3000/productos/'+id,{
-        method: 'DELETE'
+        method: 'DELETE',
+        cache: 'reload'
     })
     :
     ""
@@ -636,7 +636,8 @@ ingr.addEventListener('click',()=>{
             })
 
             editarProducto.addEventListener('click', async(e)=>{
-                console.log()
+                console.log(e.target.classList.add)
+                debugger
                 e.preventDefault();
                 let newProduct = {}
                 if(imagenUrl.value == "" || nombreF.value == "" || precioForm.value == ""){
@@ -687,12 +688,13 @@ ingr.addEventListener('click',()=>{
                      }
                     }
                 }
-                await fetch('http://localhost:3000/compras/'+e.target.classList.add,{
-                    method: 'PATCH',
+                await fetch(`http://localhost:3000/productos/${e.target.classList.add}`,{
+                    method: 'PUT',
                     headers: {
                         'Content-type': 'application/json'
                     },
-                    body: JSON.stringify(newProduct)
+                    body: JSON.stringify(newProduct),
+                    cache: 'reload'
                 })
             }
             })
