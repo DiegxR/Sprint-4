@@ -1,0 +1,705 @@
+body{
+    width: 100%;
+    height: 100vw;
+    background-color: #f8f8f8;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;;
+}
+main{
+    margin: 35px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+nav div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#locationMdl{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #332927d3;
+    margin-top: -40px;
+}
+#locationMdl h2{
+    color: #332927;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+#locationMdl div{
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 320px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+}
+.closeIcon{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#closeLocation{
+    align-self: end;
+}
+#saveLocation{
+    margin-top: -5px;
+    width: 100%;
+    height: 60px;
+    background-color: #0AC763;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+#ubicacion{
+    width: 300px;
+}
+#ubicacion, #ubicacion::after {
+    border-style: none;
+    outline-style: none;
+}
+
+#inputsMdl{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    border: 1px solid;
+    height: 80px;
+    color: #e7e3e3;
+    border-radius: 5px;
+}
+#inputsMdl img{
+    margin-left: 15px;
+    margin-right: 10px;
+    width: 18px;
+    color: black;
+}
+#locationView{
+    font-size: 16px;
+    margin-left: -12px;
+}
+#car{
+    background-color: #0AC763;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    color: white;
+    align-items: center;
+}
+#car img{
+    width: 22px;
+    margin-right: 8px;
+}
+#line{
+    border-left: 1px solid;
+    width: 1px;
+    height: 40px;
+    border-color: #B8B4B4;
+}
+#head{
+    background: url(./img/head.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 250px;
+    color: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+#head h1{
+    font-weight: 600;
+}
+.ofertas, .populares{
+    margin-top: 35px;
+    border-radius: 15px;
+    background-color: white;
+    width: 100%;
+    height: 570px;
+    padding: 40px;
+}
+.ofertas h3, .populares h3{
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.carrusel{
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    overflow: hidden;
+}
+.carrusel:hover{
+    overflow-x: scroll;
+    -webkit-scrollbar-track: none;
+}  
+.carrusel::-webkit-scrollbar {
+    width: 20px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+.carrusel::-webkit-scrollbar-thumb{
+    background-color: #0000006e;
+}
+.product{
+    min-width: 250px;
+}
+.product p{
+    background-color: #F0E3FE;
+    width: 70px;
+    border-radius: 10px;
+    color: #5E18BB;
+    font-weight: 700;
+    text-align: center;
+    font-size: 15px;
+}
+.product img{
+    width: 200px;
+    height: 200px;
+}
+.product del{
+    color: #B8B4B4;
+    font-weight: 600;
+}
+.product h2{
+   font-size: 20px;
+   font-weight: 800;
+}
+.product h4{
+    font-weight: 200;
+    margin-top: 10px;
+}
+.btnAgregar{
+    background-color: #0AC763;
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+/* Modal de agregar */
+#addModal{
+    position: absolute;
+    margin-top: -40px;
+    width: 100%;
+    height: 120vw;
+    background-color: #332927d3;
+}
+#addModal article{
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    margin-top: 80px;
+    width: 90%;
+    height: 1180px;
+    padding: 20px;
+    padding-left: 40px;
+    border-radius: 15px;
+}
+#addModal section:nth-child(1){
+display: flex;
+}
+#addModal section:nth-child(1) img{
+    width: 50%;
+}
+#addModal section:nth-child(1) div{
+    width: 50%;
+    padding: 30px;
+    padding-top: 10%;
+}
+#addModal section:nth-child(1) div h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+ }
+ #addModal section:nth-child(1) div h3{
+    font-size: 20px;
+    margin-bottom: 20px;
+ }
+ #addModal section:nth-child(1) div h5{
+    font-weight: 400;
+    margin-bottom: 8px;
+ }
+ #addModal section:nth-child(1) div p{
+   font-size: 19px;
+   margin-bottom: 45px;
+ }
+ #addModal section:nth-child(1) div h2{
+    font-size: 18px;
+  } 
+  #addModal section:nth-child(1) div select{
+    width: 100%;
+    border-style: none;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.459);
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .addBtns{
+    display: flex;
+    padding: 0px !important;
+    width: 100% !important;
+    height: 50px;
+    align-items: center !important;
+  }
+  .addBtns{
+    display: flex;
+    padding: 0px !important;
+    width: 100% !important;
+    height: 80px;
+    align-items: center !important;
+    gap: 30px;
+  }
+  .addBtns button{
+    margin-top: 10px;
+    width: 260px;
+  }
+  .addBtns figure input{
+    font-size: 15px;
+  }
+  .addBtns figure p{
+    font-size: 15px !important;
+    transform: translateY(23px);
+  }
+  #addModal section:last-child h2{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  } 
+/* Modal del carrito */
+
+#carModal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -40px;
+    height: 120vw;
+    background-color: #332927d3;
+    display: flex;
+}
+#carModal article{
+    background-color: #ffffff;
+    width: 50%;
+    height: 800px;
+    margin-left: auto;
+}
+#carModal article section{
+    height: 530px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+#carModal article section figure figure button{
+    padding-bottom: 5px;
+}
+#carModal article section figure figure input{
+    font-size: 17px;
+    width: 100px;
+}
+#carModal article section figure figure{
+    font-size: 17px;
+}
+#carModal article div{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.185);
+}
+.productCar{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.185);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textCar {
+    flex-direction: column;
+}
+.textCar h2, p{
+    align-items: flex-start !important;
+    text-align: start ;
+}
+.productCar img{
+   width: 80px; 
+   height: 80px;
+}
+.productCar div{
+    border: none !important;
+}
+.contador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0px 11px 29px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 160px;
+    height: 40px;
+}
+.contador input{
+    width: 60px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    border-style: none;
+}
+.contador p{
+    position: absolute;
+    margin-left: 50px;
+    font-weight: 600;
+}
+.contador button{
+    padding-bottom: 10px;
+   font-size: 30px; 
+   font-weight: 400;
+   border-style: none;
+   background-color: transparent;
+}
+#productAdd{
+    position: absolute;
+    background-color: #0AC763;
+    width: 350px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    gap: 10px;
+    margin-top: 60px;
+    margin-right: 35px;
+    border-radius: 5px;
+    right: 0;
+}
+#btnPagar{
+    padding: 8px;
+    display: flex;
+    background-color: #0AC763;
+    width: 235px;
+    justify-content: space-between;
+    align-content: center;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+}
+#btnPagar h2{
+    background: #2E7E78;
+   width: 30px;
+   border-radius: 5px;
+   margin-left: 15px;
+}
+#btnPagar h3{
+   margin-top: 3px;
+   margin-left: -10px;
+}
+#btnPagar h4{
+    margin-top: 3px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 300;
+}
+.hidden{
+    display: none;
+}
+.delete{
+    margin-bottom: 100px;
+    width: 5px;
+    height: 5px;
+}
+.formulario-container{
+    width: 65%;
+    background-color: white;
+    display: grid;
+    padding-top: 100px;
+    padding-left: 100px;
+}
+#back{
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 10px;
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+#formulario label{
+    margin-bottom: 15px;
+}
+#formulario input{
+    border-style: none;
+    height: 40px;
+    border: 1px solid rgba(60, 66, 87, 0.12);
+}
+#correo{
+    margin-bottom: 50px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+}
+#num{
+    width: 500px;
+    border-radius: 8px 8px 0 0;
+    font-size: 16px;
+    padding: 12px;
+}
+#formulario figure{
+    display: flex;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+}
+#cvc{
+    border-radius: 0 0 8px;
+}
+#date{
+    border-radius: 0 0 0 8px;
+}
+#formulario figure input{
+    margin: 0px;
+    font-size: 16px;
+    display: flex;
+    width: 250px;
+    padding: 12px;
+}
+#nameCar{
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+}
+#formulario button{
+    background: #0AC763;
+    box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.12), 0px 2px 5px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    height: 48px;
+    border-style: none;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#comprado{
+    width: 100%;
+    height: 100vh;
+    background-color: #332927d3;
+}
+#comprado article{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 10%;
+    
+}
+#ingresar{
+    margin: 0px;
+    width: 100%;
+}
+#infoAdmin{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 8%;
+    padding: 20px;
+    width: 60%;
+    gap: 20px;
+    border-radius: 10px;
+}
+#adminMdl, #bgMdl, #formAdd{
+    margin-top: -40px;
+    position: absolute;
+    width: 100%;
+    height: 120vh;
+    background-color: #332927d3;
+}
+#adminMdl article{
+    margin: auto;
+    margin-top: 15%;
+    width: 60%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 10px;
+}
+#adminMdl article input{
+    width: 90%;
+}
+#adminMdl article button{
+    background-color: #0AC763;
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    
+}
+#adminMdl figure{
+    height: 200%;
+    width: 90%;
+    background-color: #ffffff;
+    margin: auto;
+    margin-top: 8%;
+    padding: 30px;
+    border-radius: 10px;
+}
+#formAdd article{
+    width: 90%;
+    background-color: white;
+    margin: auto;
+    height: 600px;
+    margin-top: 8%;
+    padding: 20px;
+    border-radius: 10px;
+}
+#bgMdl article input{
+   height: 40px;
+   border-radius: 5px;
+}
+#formAdd form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#formAdd form div{
+    display: flex;
+    flex-direction: column;
+}
+#comprasInfor h1{
+    text-align: center;
+}
+#comprasInfor h4{
+    text-align: center;
+    background-color: #0AC763;
+    width: 100%;
+}
+#formStyle tr, th, td{
+    border: 1px solid #048b43 ;
+}
+#formStyle{
+    width: 100% !important;
+    
+}
+#formStyle table{
+    width: 100%;
+}
+#aggProduct{
+    border-color: #0AC763;
+    color: #048b43;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+#editProduct{
+    border-color: #048b43;
+}
+#borrarProduct{
+    border-color: red;
+}
+@media (max-width: 680px) {
+    #carModal article{
+        margin: 0px !important;
+        width: 100% !important;
+    }
+    #addModal{
+        height: 275%; 
+        overflow-y: hidden;   
+    }
+    #addModal article{
+        height: 100%;
+        width: 90%;
+        padding-left:50px;
+        margin-top: 10px;
+    }
+    #addModal article section{
+        margin: 0px;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    #addModal article section div{
+        padding: 0px !important;
+        width: 100% !important;
+    }
+    .addBtns figure{
+        width: 100%;
+    }
+    .addBtns{
+        margin-top: 30px;
+        flex-direction: column;
+        gap: 10px;
+        height: 200px;
+    }
+    #addToCarBtn{
+        width: 100%;
+    }
+    .closeAdd{
+        margin-left: 70% !important;
+    }
+    #locationMdl div{
+        width: 90%;
+        height: 400px;
+    }
+    #carModal{
+        overflow-y: scroll;
+        height: 100%;
+    }
+    #carModal{
+        flex-direction: column !important;
+    }
+    .formulario-container{
+        width: 100%;
+        padding-left: 25px;
+        padding-top: 20px;
+    }
+    #formulario{
+        width: 100%;
+    }
+    #formulario input{
+        width: 90%;
+        height: 50px;
+    }
+    #formulario button{
+        width: 90%;
+    }
+    #formulario figure{
+        width: 90%;
+    }
+    #num{
+        width: 90% !important;
+    }
+  
+}

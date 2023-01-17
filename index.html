@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <section id="formAdd"style="display: none; z-index: 1;">
+        <article>
+            <div style="display: flex; gap: 10px; align-items: center;" onclick="formAdd.style.display = 'none'"><img src="./img/back.svg"><p>Salir</p></div>
+            <form id="formProducts">
+                <label>Imagen Url</label>
+                <input id="imagenUrl" />
+                <label>Nombre</label>
+                <input id="nombreF" />
+                <label>Precio</label>
+                <input id="precioForm">
+                <label>Descuento</label>
+                <input id="descuentoF"/>
+                <label>Tipo</label>
+                <select id="tipo">
+                    <option value="1">Frutas y verduras</option>
+                    <option value="2">Abarrotesm procesados y aseo</option>
+                </select>
+                    <label>Tiempo de estado del producto</label>
+                <div>
+                    <label>Maduro</label>
+                    <input id="maduro">
+                    <label>Normal</label>
+                    <input id="normal">
+                    <label>Verde</label>
+                    <input id="verde">
+                </div>
+            </form>
+            <div>
+                <button id="guardarProduct">Guardar</button>
+                <button id="editarProduct">Editar</button>
+            </div>
+        </article>
+    </section>
+    <section id="bgMdl" style="display: none; ">
+        
+        <article id="infoAdmin" >
+            <div style="display: flex; gap: 10px; align-items: center;" onclick="bgMdl.style.display = 'none'"><img src="./img/back.svg"><p>salir</p></div>
+            <label for="">Usuario</label>
+            <input type="text" id="user">
+            <label for="">Constraseña</label>
+            <input type="password" id="password">
+            <p style="color: red;" id="userError"></p>
+            <button id="ingresar" class="btnAgregar">Ingresar</button>
+        </article>
+        <section id="adminMdl" style="display: none;"></section>
+    </section>
+    <section id="locationMdl">
+        <div>
+            <button id="closeLocation" class="closeIcon">x</button>
+            <h2>¿Donde quieres recibir tu pedido?</h2>
+            <p>Para poder ofrecerte productos dentro de tu área, necesitamos tu dirección</p>
+            <figure id="inputsMdl">
+                <img src="./img/locationBlack.svg" alt="">   
+                <input list="departamento" id="ubicacion">
+                <datalist name=""  id="departamento" > 
+                    <option value="Ingresa tu dirección"></option>
+                </datalist>
+            </figure>
+            <button id="saveLocation">Guardar</button>
+        </div>
+    </section>
+    <section id="addModal">
+    </section>
+    <section id="carModal">
+        
+    </section>
+    <section id="comprado" style="display: none;">
+        <article>
+            <img src="./img/compra.svg" alt="">
+            <h1>¡Gracias por tu compra!</h1>
+            <button onclick="getElementById('comprado').style.display= 'none'">Seguir comprando</button>
+        </article>
+    </section>
+    <main>
+        <div id="productAdd">
+            <img src="./img/check.svg" alt="">
+            <p>Producto Añadido</p>
+        </div>
+        <nav>
+            <div>
+                <img src="./img/logo.svg" alt="">
+                <img src="./img/user.webp" style="width: 22px;" onclick="getElementById('bgMdl').style.display = 'block'">
+            </div>
+            <div>
+                <div id="locationBtn">
+                    <img src="./img/location.svg" alt="">
+                    <h2 id="locationView"></h2>
+                </div>
+                <figure id="line"></figure>
+                <button id="car"><img src="./img/car.svg" alt=""><p id="numCar"></p></button>
+                
+            </div>
+        </nav>
+        <section id="head">
+            <h1>¡Adquiere todos tus productos favoritos al mejor precio!</h1>
+        </section>
+        <article id="products">
+            <section class="ofertas">
+                <h3>Ofertas</h3>
+                <div id="ofertas" class="carrusel">
+    
+                </div>
+            </section>
+            <section class="populares">
+                <h3>Los más populares</h3>
+                <div id="populares" class="carrusel">
+    
+                </div>
+            </section>
+        </article>
+    </main>
+    <script src="./main.js"></script>
+</body>
+</html>
